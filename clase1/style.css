@@ -1,0 +1,23 @@
+.nombre{
+    color:red;background-color: aqua;
+    
+}
+.apellido{
+    color:blue;background-color: blueviolet;
+}
+body{
+    background-color: aqua;
+}
+.cuadrado{
+    background-color: black;
+    width: 100px;
+    height: 100px;
+    border-radius: 30px;
+}
+.p1{
+    color:black
+
+}
+.p2{
+    color:black
+}
