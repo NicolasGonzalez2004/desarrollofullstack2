@@ -24,3 +24,18 @@
          </div>
     </body>
 </html>
+
+
+<script>
+
+  const paises = ["Chile", "Argentina", "Perú", "México", "España"];
+  const select = document.getElementById("pais");
+
+
+  paises.forEach(p => {
+
+    select.innerHTML += `<option value="${p}">${p}</option>`;
+    
+  });
+
+</script>
