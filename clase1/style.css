@@ -1,8 +1,13 @@
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: Arial, sans-serif;
     background: #f4f4f4;
     margin: 0;
     padding: 0;
+    transition: background 0.3s, color 0.3s;
 }
 
 /* Navbar */
@@ -30,11 +35,6 @@ body {
     border-radius: 50%;
 }
 
-.navbar-logo span {
-    font-size: 1.5rem;
-    font-weight: bold;
-}
-
 .navbar-links a {
     color: white;
     text-decoration: none;
@@ -53,30 +53,45 @@ body {
     cursor: pointer;
 }
 
-@media (max-width: 768px) {
-    .navbar-links {
-        display: none;
-        flex-direction: column;
-        background-color: #007bff;
-        position: absolute;
-        top: 60px;
-        right: 0;
-        width: 200px;
-        padding: 10px;
-        border-radius: 0 0 0 10px;
-    }
+/* Hero */
+.hero {
+    background: url('images/fondo.jpg') center/cover no-repeat;
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    position: relative;
+}
 
-    .navbar-links a {
-        margin: 10px 0;
-    }
+.hero::after {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.4);
+}
 
-    .navbar-toggle {
-        display: block;
-    }
+.hero-content {
+    position: relative;
+    z-index: 1;
+}
 
-    .navbar-links.active {
-        display: flex;
-    }
+.btn-hero {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 24px;
+    background: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    transition: 0.3s;
+}
+
+.btn-hero:hover {
+    background: #0056b3;
 }
 
 /* Sección misión */
@@ -86,22 +101,9 @@ body {
     margin: 50px 0;
     border-radius: 15px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    text-align: left;
 }
 
-.mision-section h2 {
-    font-size: 2rem;
-    margin-bottom: 25px;
-    color: #007bff;
-}
-
-.mision-section p {
-    font-size: 1.1rem;
-    line-height: 1.8;
-    color: #333;
-}
-
-/* Sección de frases alineada a la izquierda */
+/* Frases */
 .frases-section {
     text-align: left;
     margin: 50px auto;
@@ -109,54 +111,57 @@ body {
     padding-left: 50px;
 }
 
-.frases-section h2 {
-    font-size: 2rem;
-    margin-bottom: 15px;
-    color: #007bff;
-}
-
-.frases-section label,
-.frases-section select {
-    display: block;
-    margin-bottom: 10px;
-    font-size: 1rem;
-}
-
 .frase {
-    font-size: 1.5rem;
+    font-size: 2rem;
     background: white;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     max-width: 500px;
     margin-bottom: 20px;
-    text-align: left;
+    text-align: center;
+    transition: all 0.5s ease;
 }
 
+.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.fade-out {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+/* Botones */
 button {
-    background: #007bff;
+    background: linear-gradient(135deg, #007bff, #00c6ff);
     color: white;
     border: none;
-    padding: 12px 20px;
-    font-size: 1rem;
-    border-radius: 8px;
+    padding: 14px 24px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 50px;
     cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 123, 255, 0.4);
+    margin-right: 10px;
 }
 
 button:hover {
-    background: #0056b3;
+    background: linear-gradient(135deg, #0056b3, #0099cc);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(0, 123, 255, 0.6);
 }
 
-/* Información destacada */
+button:active {
+    transform: scale(0.97);
+}
+
+/* Información */
 .info-section {
     text-align: center;
     padding: 40px;
-    background-color: #f4f4f4;
-}
-
-.info-section h2 {
-    margin-bottom: 20px;
-    font-size: 2rem;
 }
 
 .info-container {
@@ -166,56 +171,54 @@ button:hover {
     flex-wrap: wrap;
 }
 
-.info-card {
-    background: white;
-    border-radius: 10px;
-    padding: 15px;
-    width: 300px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    text-align: center;
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.info-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-}
-
 .info-card img {
     width: 100%;
     height: 200px;
     object-fit: cover;
-    border-radius: 10px;
 }
 
-.info-card h3 {
-    margin: 10px 0 5px;
-}
-
-.info-card p {
-    font-size: 0.9rem;
-    color: #555;
-}
-
-/* Footer */
-.pie {
-    background: #111;
-    color: white;
+/* Testimonios */
+.testimonios {
     text-align: center;
-    padding: 20px;
+    padding: 40px;
 }
 
-.pie nav a,
-.pie div a {
+.testimonio-card {
+    background: white;
+    padding: 20px;
+    margin: 10px auto;
+    border-radius: 10px;
+    max-width: 500px;
+}
+
+/* Botón flotante */
+.btn-up {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #007bff;
     color: white;
-    margin: 0 10px;
+    padding: 12px 18px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    display: none;
     text-decoration: none;
 }
 
-.pie nav a:hover,
-.pie div a:hover {
-    text-decoration: underline;
+.btn-up.show {
+    display: block;
 }
+
+/* Modo oscuro */
+.dark-mode {
+    background: #222;
+    color: #f4f4f4;
+}
+
+.dark-mode .frase {
+    background: #333;
+}
+
 
 
 

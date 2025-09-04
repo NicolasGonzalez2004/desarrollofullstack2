@@ -11,10 +11,11 @@
     <!-- Navbar -->
     <header class="navbar">
         <div class="navbar-logo">
-            <img src="images/images.png" alt="Logo" />
+            <img src="images/images.png" alt="Logo">
             <span>Motiva Hoy</span>
         </div>
         <nav class="navbar-links">
+            <a href="#hero">Inicio</a>
             <a href="#mision">Nuestra Misión</a>
             <a href="#frases">Frases</a>
             <a href="#info">Información</a>
@@ -23,7 +24,16 @@
         <div class="navbar-toggle" id="navbar-toggle">&#9776;</div>
     </header>
 
-    <!-- Sección de misión -->
+    <!-- Hero -->
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <h1>Bienvenido a Motiva Hoy</h1>
+            <p>Frases que inspiran, motivan y te acompañan día a día.</p>
+            <a href="#frases" class="btn-hero">Ver frases</a>
+        </div>
+    </section>
+
+    <!-- Sección misión -->
     <section class="mision-section" id="mision">
         <h2>Nuestra Misión</h2>
         <p>
@@ -31,12 +41,9 @@
         </p>
     </section>
 
-    <h1></h1>
-
-    <!-- Sección de frases motivadoras alineada a la izquierda -->
+    <!-- Sección de frases motivadoras -->
     <section class="frases-section" id="frases">
         <h2>Frases Motivadoras</h2>
-
         <label for="categoria">Selecciona categoría:</label>
         <select id="categoria">
             <option value="motivacion">Motivación</option>
@@ -44,14 +51,15 @@
             <option value="esfuerzo">Esfuerzo</option>
         </select>
 
-        <div class="frase" id="frase">
+        <div class="frase fade-in" id="frase">
             ¡Nunca te rindas, lo mejor está por venir!
         </div>
         <br>
         <button id="boton">Nueva Frase</button>
+        <button id="dark-mode-toggle">🌙 Modo Oscuro</button>
     </section>
 
-    <!-- Sección de información -->
+    <!-- Sección información -->
     <section class="info-section" id="info">
         <h2>Información Destacada</h2>
         <div class="info-container">
@@ -73,9 +81,25 @@
         </div>
     </section>
 
+    <!-- Testimonios -->
+    <section class="testimonios">
+        <h2>Lo que dicen nuestros usuarios</h2>
+        <div class="testimonio-card">
+            <p>"Motiva Hoy me ha ayudado a mantenerme enfocado y positivo cada día."</p>
+            <span>- Juan P.</span>
+        </div>
+        <div class="testimonio-card">
+            <p>"Gracias a estas frases, empiezo mi día con energía y esperanza."</p>
+            <span>- María L.</span>
+        </div>
+    </section>
+
+    <!-- Botón flotante -->
+    <a href="#" class="btn-up">↑</a>
+
     <!-- Footer -->
     <footer class="pie" id="contacto">
-        <p>&copy; 2025 Mi Sitio Web. Todos los derechos reservados.</p>
+        <p>&copy; 2025 Motiva Hoy. Todos los derechos reservados.</p>
         <nav>
             <a href="#mision">Sobre nosotros</a>
             <a href="#contacto">Contacto</a>
@@ -91,6 +115,4 @@
     <script src="app.js"></script>
 </body>
 </html>
-
-
 

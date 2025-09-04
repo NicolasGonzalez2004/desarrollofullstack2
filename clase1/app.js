@@ -21,15 +21,35 @@ const fraseDiv = document.getElementById("frase");
 const boton = document.getElementById("boton");
 const categoriaSelect = document.getElementById("categoria");
 
+// Cambiar frases con animación
 boton.addEventListener("click", () => {
-    const categoria = categoriaSelect.value; // obtiene la categoría seleccionada
+    const categoria = categoriaSelect.value;
     const arrayFrases = frases[categoria];
     const randomIndex = Math.floor(Math.random() * arrayFrases.length);
 
-    // efecto fade
-    fraseDiv.style.opacity = 0;
+    fraseDiv.classList.remove("fade-in");
+    fraseDiv.classList.add("fade-out");
+
     setTimeout(() => {
         fraseDiv.textContent = arrayFrases[randomIndex];
-        fraseDiv.style.opacity = 1;
+        fraseDiv.classList.remove("fade-out");
+        fraseDiv.classList.add("fade-in");
     }, 300);
 });
+
+// Dark mode
+const toggleDark = document.getElementById("dark-mode-toggle");
+toggleDark.addEventListener("click", () => {
+    document.body.classList.toggle("dark-mode");
+});
+
+// Botón flotante para volver arriba
+const btnUp = document.querySelector('.btn-up');
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 300) {
+        btnUp.classList.add('show');
+    } else {
+        btnUp.classList.remove('show');
+    }
+});
+
