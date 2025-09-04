@@ -1,23 +1,223 @@
-.nombre{
-    color:red;background-color: aqua;
-    
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+    margin: 0;
+    padding: 0;
 }
-.apellido{
-    color:blue;background-color: blueviolet;
-}
-body{
-    background-color: aqua;
-}
-.cuadrado{
-    background-color: black;
-    width: 100px;
-    height: 100px;
-    border-radius: 30px;
-}
-.p1{
-    color:black
 
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #007bff;
+    padding: 10px 20px;
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
-.p2{
-    color:black
+
+.navbar-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
+
+.navbar-logo img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.navbar-logo span {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.navbar-links a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.navbar-links a:hover {
+    color: #ffd700;
+}
+
+.navbar-toggle {
+    display: none;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .navbar-links {
+        display: none;
+        flex-direction: column;
+        background-color: #007bff;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 200px;
+        padding: 10px;
+        border-radius: 0 0 0 10px;
+    }
+
+    .navbar-links a {
+        margin: 10px 0;
+    }
+
+    .navbar-toggle {
+        display: block;
+    }
+
+    .navbar-links.active {
+        display: flex;
+    }
+}
+
+/* Sección misión */
+.mision-section {
+    background-color: #e0f7fa;
+    padding: 50px 80px;
+    margin: 50px 0;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    text-align: left;
+}
+
+.mision-section h2 {
+    font-size: 2rem;
+    margin-bottom: 25px;
+    color: #007bff;
+}
+
+.mision-section p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #333;
+}
+
+/* Sección de frases alineada a la izquierda */
+.frases-section {
+    text-align: left;
+    margin: 50px auto;
+    max-width: 800px;
+    padding-left: 50px;
+}
+
+.frases-section h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    color: #007bff;
+}
+
+.frases-section label,
+.frases-section select {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 1rem;
+}
+
+.frase {
+    font-size: 1.5rem;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    max-width: 500px;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+button {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #0056b3;
+}
+
+/* Información destacada */
+.info-section {
+    text-align: center;
+    padding: 40px;
+    background-color: #f4f4f4;
+}
+
+.info-section h2 {
+    margin-bottom: 20px;
+    font-size: 2rem;
+}
+
+.info-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.info-card {
+    background: white;
+    border-radius: 10px;
+    padding: 15px;
+    width: 300px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.info-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+.info-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.info-card h3 {
+    margin: 10px 0 5px;
+}
+
+.info-card p {
+    font-size: 0.9rem;
+    color: #555;
+}
+
+/* Footer */
+.pie {
+    background: #111;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+.pie nav a,
+.pie div a {
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+.pie nav a:hover,
+.pie div a:hover {
+    text-decoration: underline;
+}
+
+
+
+
+

@@ -1,41 +1,96 @@
-<html>
+<!DOCTYPE html>
+<html lang="es">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Motiva Hoy</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>MOTIVA HOY</h1>
 
-    <div id="Frase" class="frase">
-        levantate de la cama ve y enfréntate a la vida porque tu naciste para sobrevivir
-    </div>
-    <div class="margen">
-     
-     </div>   
-    <button id="boton">mostrar otra frase</button>
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="navbar-logo">
+            <img src="images/images.png" alt="Logo" />
+            <span>Motiva Hoy</span>
+        </div>
+        <nav class="navbar-links">
+            <a href="#mision">Nuestra Misión</a>
+            <a href="#frases">Frases</a>
+            <a href="#info">Información</a>
+            <a href="#contacto">Contacto</a>
+        </nav>
+        <div class="navbar-toggle" id="navbar-toggle">&#9776;</div>
+    </header>
 
-    <script>
-        // Array con frases motivadoras
-        const frases = [
-            "Levántate y brilla, el mundo te necesita.",
-            "Cada día es una nueva oportunidad para ser mejor.",
-            "No te rindas, lo mejor está por venir.",
-            "El esfuerzo de hoy será tu éxito de mañana.",
-            "Cree en ti y todo será posible.",
-            "No hay límites para quien se atreve a soñar.",
-            "La disciplina vence al talento cuando el talento no se esfuerza",
-            "La vida es bella no te rindas ",
-            "Levantate el mundo te necesita"
-            
-        ];
+    <!-- Sección de misión -->
+    <section class="mision-section" id="mision">
+        <h2>Nuestra Misión</h2>
+        <p>
+            Esta es una página web creada especialmente para ti, para acompañarte en cada paso de tu día, en cada emoción que atraviesas, para recordarte que no estás solo y que siempre hay razones para mantener la esperanza. Aquí encontrarás palabras que buscan inspirarte, motivarte y llenarte de energía positiva, recordándote que incluso los momentos más difíciles pueden convertirse en oportunidades de aprendizaje, que cada caída es un paso hacia tu crecimiento personal y que cada pequeño logro merece celebrarse. Nuestra misión es ayudarte a enfrentar cada día con una sonrisa, a encontrar fuerza en tu interior y a recordar que cada amanecer trae consigo nuevas oportunidades, nuevas metas y nuevas razones para seguir adelante con confianza, alegría y determinación.
+        </p>
+    </section>
 
-        const fraseDiv = document.getElementById("Frase");
-        const boton = document.getElementById("boton");
+    <h1></h1>
 
-        boton.addEventListener("click", () => {
-            // Escoge una frase aleatoria
-            const randomIndex = Math.floor(Math.random() * frases.length);
-            fraseDiv.textContent = frases[randomIndex];
-        });
-    </script>
+    <!-- Sección de frases motivadoras alineada a la izquierda -->
+    <section class="frases-section" id="frases">
+        <h2>Frases Motivadoras</h2>
+
+        <label for="categoria">Selecciona categoría:</label>
+        <select id="categoria">
+            <option value="motivacion">Motivación</option>
+            <option value="disciplina">Disciplina</option>
+            <option value="esfuerzo">Esfuerzo</option>
+        </select>
+
+        <div class="frase" id="frase">
+            ¡Nunca te rindas, lo mejor está por venir!
+        </div>
+        <br>
+        <button id="boton">Nueva Frase</button>
+    </section>
+
+    <!-- Sección de información -->
+    <section class="info-section" id="info">
+        <h2>Información Destacada</h2>
+        <div class="info-container">
+            <div class="info-card">
+                <img src="images/img1.jpg" alt="Imagen 1">
+                <h3>Luffy</h3>
+                <p>Sé como Luffy, no pares de seguir tu sueño.</p>
+            </div>
+            <div class="info-card">
+                <img src="images/img3.jpg" alt="Imagen 2">
+                <h3>Naruto</h3>
+                <p>Confiar en ti es el primer paso para llegar a la cima.</p>
+            </div>
+            <div class="info-card">
+                <img src="images/img4.jpg" alt="Imagen 3">
+                <h3>Deku</h3>
+                <p>¡Tengo que trabajar más duro que nadie para lograrlo!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="pie" id="contacto">
+        <p>&copy; 2025 Mi Sitio Web. Todos los derechos reservados.</p>
+        <nav>
+            <a href="#mision">Sobre nosotros</a>
+            <a href="#contacto">Contacto</a>
+            <a href="#">Política de Privacidad</a>
+        </nav>
+        <div>
+            <a href="https://facebook.com" target="_blank">Facebook</a>
+            <a href="https://instagram.com" target="_blank">Instagram</a>
+            <a href="https://twitter.com" target="_blank">Twitter</a>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
 </body>
 </html>
+
+
+
