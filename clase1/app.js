@@ -17,39 +17,30 @@ const frases = {
     ]
 };
 
-const fraseDiv = document.getElementById("frase");
-const boton = document.getElementById("boton");
-const categoriaSelect = document.getElementById("categoria");
+document.addEventListener("DOMContentLoaded", () => {
+    const fraseDiv = document.getElementById("frase");
+    const boton = document.getElementById("boton");
+    const categoriaSelect = document.getElementById("categoria");
+    const darkModeBtn = document.getElementById("dark-mode-toggle");
 
-// Cambiar frases con animación
-boton.addEventListener("click", () => {
-    const categoria = categoriaSelect.value;
-    const arrayFrases = frases[categoria];
-    const randomIndex = Math.floor(Math.random() * arrayFrases.length);
+    // Generador de frases
+    boton.addEventListener("click", () => {
+        const categoria = categoriaSelect.value;
+        const arrayFrases = frases[categoria];
+        const randomIndex = Math.floor(Math.random() * arrayFrases.length);
 
-    fraseDiv.classList.remove("fade-in");
-    fraseDiv.classList.add("fade-out");
+        fraseDiv.style.opacity = 0;
+        setTimeout(() => {
+            fraseDiv.textContent = arrayFrases[randomIndex];
+            fraseDiv.style.opacity = 1;
+        }, 300);
+    });
 
-    setTimeout(() => {
-        fraseDiv.textContent = arrayFrases[randomIndex];
-        fraseDiv.classList.remove("fade-out");
-        fraseDiv.classList.add("fade-in");
-    }, 300);
+    // Modo oscuro
+    darkModeBtn.addEventListener("click", () => {
+        document.body.classList.toggle("dark-mode");
+    });
 });
 
-// Dark mode
-const toggleDark = document.getElementById("dark-mode-toggle");
-toggleDark.addEventListener("click", () => {
-    document.body.classList.toggle("dark-mode");
-});
 
-// Botón flotante para volver arriba
-const btnUp = document.querySelector('.btn-up');
-window.addEventListener('scroll', () => {
-    if (window.scrollY > 300) {
-        btnUp.classList.add('show');
-    } else {
-        btnUp.classList.remove('show');
-    }
-});
 
