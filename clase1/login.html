@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es" class="theme-ocean">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Login — Motiva Hoy</title>
+  <link rel="stylesheet" href="./style.css">
+  <!-- (opcional) mismas fuentes de index -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+
+    .auth-wrap{min-height:70vh;display:grid;place-items:center;padding:40px 20px}
+    .auth-card{background:var(--card);border-radius:16px;box-shadow:0 12px 30px rgba(0,0,0,.08);
+      width:min(420px, 92vw);padding:24px;border:1px solid color-mix(in oklab, var(--brand) 10%, #0000)}
+    .auth-card h2{margin:0 0 8px}
+    .auth-card p{color:var(--muted);margin:0 0 18px}
+    .auth-card label{display:block;margin:10px 0 6px;font-weight:600}
+    .auth-card .input{width:100%;padding:12px;border-radius:12px;border:1px solid color-mix(in oklab, var(--text) 10%, transparent)}
+    .auth-actions{display:flex;justify-content:space-between;align-items:center;margin-top:14px}
+    .muted{color:var(--muted)}
+    .link{color:var(--brand);text-decoration:none;font-weight:600}
+    .link:hover{text-decoration:underline}
+  </style>
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="navbar-logo">
+      <img src="./images/images.png" alt="Logo">
+      <span>Motiva Hoy</span>
+    </div>
+    <nav class="navbar-links">
+      <a href="./index.html#hero">Inicio</a>
+      <a href="./index.html#mision">Nuestra Misión</a>
+      <a href="./index.html#frases">Frases</a>
+      <a href="./index.html#info">Información</a>
+      <a href="./index.html#contacto">Contacto</a>
+      <a href="./nosotros.html">Nosotros</a>
+      <a href="./login.html" id="nav-login">Login</a>
+      <a href="./index.html" id="nav-logout" style="display:none">Salir</a>
+    </nav>
+  </header>
+
+  <main class="auth-wrap">
+    <div class="auth-card">
+      <h2>Iniciar sesión</h2>
+      <p>Usa tu correo y contraseña para continuar.</p>
+
+      <form id="login-form" onsubmit="return false">
+        <label for="login-email">Email</label>
+        <input id="login-email" type="email" class="input" placeholder="tucorreo@ejemplo.com" autocomplete="email" required>
+
+        <label for="login-pass">Contraseña</label>
+        <input id="login-pass" type="password" class="input" placeholder="••••••••" autocomplete="current-password" required>
+
+        <div class="auth-actions">
+          <label class="muted" style="display:flex;gap:6px;align-items:center">
+            <input type="checkbox" id="remember"> Recordarme
+          </label>
+          <button class="btn" id="login-btn">Entrar</button>
+        </div>
+
+        <p id="login-status" class="muted" role="status" aria-live="polite" style="margin-top:10px"></p>
+      </form>
+
+      <hr style="margin:18px 0;border:none;border-top:1px solid color-mix(in oklab, var(--text) 10%, transparent)">
+      <p class="muted">¿No tienes cuenta? <a href="#" id="show-register" class="link">Registrarme</a></p>
+
+
+      <form id="register-form" onsubmit="return false" style="display:none">
+        <label for="reg-email">Email</label>
+        <input id="reg-email" type="email" class="input" placeholder="tucorreo@ejemplo.com" required>
+        <label for="reg-pass">Contraseña</label>
+        <input id="reg-pass" type="password" class="input" placeholder="mínimo 6 caracteres" required>
+        <div class="auth-actions">
+          <span></span>
+          <button class="btn" id="register-btn">Crear cuenta</button>
+        </div>
+        <p id="register-status" class="muted" role="status" aria-live="polite" style="margin-top:10px"></p>
+      </form>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-bottom">
+      <p>© 2025 Motiva Hoy. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="./app.js" defer></script>
+</body>
+</html>
