@@ -1,4 +1,4 @@
-// Array de frases por categoría
+
 const frases = {
     motivacion: [
         "Levántate y brilla, hoy es tu día.",
@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const categoriaSelect = document.getElementById("categoria");
     const darkModeBtn = document.getElementById("dark-mode-toggle");
 
-    // Generador de frases
+
     boton.addEventListener("click", () => {
         const categoria = categoriaSelect.value;
         const arrayFrases = frases[categoria];
@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }, 300);
     });
 
-    // Modo oscuro
+   
     darkModeBtn.addEventListener("click", () => {
         document.body.classList.toggle("dark-mode");
     });
@@ -65,9 +65,9 @@ form?.addEventListener('submit', (e)=>{
   form.reset();
 });
 
-/* ====== AUTH DEMO (solo frontend) ====== */
-const LS_USERS_KEY = 'motiva_usuarios';   // { email: {pass} }
-const SS_SESSION_KEY = 'motiva_session';  // { email }
+
+const LS_USERS_KEY = 'motiva_usuarios';   
+const SS_SESSION_KEY = 'motiva_session';  
 
 function loadUsers(){
   try { return JSON.parse(localStorage.getItem(LS_USERS_KEY)) || {}; }
@@ -90,7 +90,7 @@ function getSession(){
   try { return raw ? JSON.parse(raw) : null; } catch { return null; }
 }
 
-/* Nav: mostrar Login/Salir según sesión */
+
 function refreshNavAuth(){
   const logged = !!getSession();
   const navLogin = document.getElementById('nav-login');
@@ -103,7 +103,7 @@ document.getElementById('nav-logout')?.addEventListener('click', ()=>{
   refreshNavAuth();
 });
 
-/* Página login: manejo de formularios si existen */
+
 (function initAuthPage(){
   const loginForm = document.getElementById('login-form');
   const registerForm = document.getElementById('register-form');

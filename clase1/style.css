@@ -1,12 +1,10 @@
-/* ====== THEME VARS (elige .theme-ocean / .theme-sunset / .theme-neon en <html>) ====== */
+
 :root{
   --bg:#f7f8fa;
   --text:#101418;
   --muted:#6b7280;
   --card:#ffffff;
   --radius:16px;
-
-  /* por defecto (ocean) */
   --brand:#0a66ff;
   --brand-700:#084fca;
   --accent:#ffd96a;
@@ -34,8 +32,6 @@ h1{font-weight:700}
 h2,h3{font-weight:600}
 
 .container{ max-width:1100px; margin:auto }
-
-/* ====== NAVBAR ====== */
 .navbar{
   position:sticky; top:0; z-index:1000;
   display:flex; align-items:center; justify-content:space-between;
@@ -58,7 +54,6 @@ h2,h3{font-weight:600}
 .navbar-links a:hover{ background:rgba(255,255,255,.12); transform:translateY(-1px) }
 .navbar-toggle{ display:none; font-size:2rem; cursor:pointer }
 
-/* ====== HERO ====== */
 .hero{
   position:relative;
   min-height:80vh;
@@ -72,7 +67,7 @@ h2,h3{font-weight:600}
   content:"";
   position:absolute; inset:0;
   background:linear-gradient(180deg, rgba(0,0,0,.45), rgba(0,0,0,.35));
-  pointer-events:none;               /* ← no bloquea clic del botón */
+  pointer-events:none;              
 }
 .hero-content{ position:relative; z-index:1; max-width:600px }
 .hero-content h1{ font-size:3rem; margin-bottom:15px }
@@ -86,10 +81,10 @@ h2,h3{font-weight:600}
 }
 .btn-hero:hover{ background:var(--brand-700); transform:translateY(-2px) }
 
-/* Ajuste anclas si navbar tapa el inicio */
+
 section{ scroll-margin-top:80px }
 
-/* ====== SECCIONES / TARJETAS ====== */
+
 .mision-section, .testimonio-card, .frase{
   border-radius:var(--radius);
   background:var(--card);
@@ -109,7 +104,7 @@ section{ scroll-margin-top:80px }
 .info-card img{ width:100%; height:200px; object-fit:cover }
 .info-card h3{ margin:15px 0 10px; color:var(--brand) }
 
-/* ====== FRASES ====== */
+
 .frases-section{ text-align:left; margin:50px auto; max-width:800px; padding-left:50px }
 .frase{ font-size:2rem; padding:20px; max-width:500px; margin-bottom:20px; text-align:center }
 .frase::before{
@@ -117,7 +112,7 @@ section{ scroll-margin-top:80px }
   font-family:"Playfair Display", serif; font-size:48px; color:var(--brand); opacity:.18;
 }
 
-/* ====== BOTONES ====== */
+
 button, .btn{
   background:linear-gradient(135deg, var(--brand), var(--brand-700));
   color:#fff; border:0; padding:12px 20px; border-radius:999px;
@@ -128,11 +123,11 @@ button, .btn{
 button:hover, .btn:hover{ transform:translateY(-2px); filter:brightness(1.05) }
 button:active, .btn:active{ transform:translateY(0) scale(0.98) }
 
-/* ====== TESTIMONIOS ====== */
+
 .testimonios{ text-align:center; padding:40px }
 .testimonio-card{ padding:20px; margin:10px auto; max-width:500px }
 
-/* ====== BOTÓN UP ====== */
+
 .btn-up{
   position:fixed; bottom:20px; right:20px;
   background:#007bff; color:#fff; padding:12px 18px; border-radius:50%;
@@ -140,11 +135,11 @@ button:active, .btn:active{ transform:translateY(0) scale(0.98) }
 }
 .btn-up.show{ display:block }
 
-/* ====== DARK MODE (si lo usas en JS) ====== */
+
 .dark-mode{ background:#222; color:#f4f4f4 }
 .dark-mode .frase{ background:#333 }
 
-/* ====== FOOTER ====== */
+
 .footer{ background:#111; color:#fff; padding:40px 20px 20px; font-family:Arial, sans-serif }
 .footer-container{
   display:flex; flex-wrap:wrap; justify-content:space-between; max-width:1200px; margin:0 auto; gap:30px
@@ -164,7 +159,7 @@ button:active, .btn:active{ transform:translateY(0) scale(0.98) }
   border-top:1px solid #333; padding-top:15px
 }
 
-/* ====== RESPONSIVE ====== */
+
 @media (max-width:768px){
   .hero-content h1{ font-size: clamp(1.8rem, 7vw, 2.6rem) }
   .info-card img{ height:180px }
