@@ -42,5 +42,28 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
+const form = document.getElementById('form');
+const nombre = document.getElementById('nombre');
+const email  = document.getElementById('email');
+const mensaje= document.getElementById('mensaje');
+const status = document.getElementById('status');
+
+function tip(input, texto){
+  input.setCustomValidity(texto || '');
+  input.reportValidity();
+  if(texto) input.focus();
+}
+
+form?.addEventListener('submit', (e)=>{
+  e.preventDefault();
+  if(!nombre.value.trim()) return tip(nombre, 'Por favor, escribe tu nombre.');
+  if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email.value)) return tip(email, 'Escribe un correo válido (ej: hola@correo.com).');
+  if(mensaje.value.trim().length < 10) return tip(mensaje, 'Cuéntanos un poco más (mínimo 10 caracteres).');
+
+  tip(nombre); tip(email); tip(mensaje);
+  status.textContent = '¡Gracias! Te responderemos pronto.';
+  form.reset();
+});
+
 
 

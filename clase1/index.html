@@ -1,17 +1,20 @@
 <!DOCTYPE html>
-<html lang="es">
+
+<html lang="es" class="theme-ocean">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Motiva Hoy</title>
     <link rel="stylesheet" href="style.css">
+   
 </head>
 <body>
 
     <!-- Navbar -->
     <header class="navbar">
         <div class="navbar-logo">
-            <img src="images/logo.jpg" alt="Logo">
+            <img src="images/images.png" alt="Logo">
             <span>Motiva Hoy</span>
         </div>
         <nav class="navbar-links">
@@ -80,6 +83,20 @@
             </div>
         </div>
     </section>
+    <!-- Video Motivacional -->
+    <section class="info-section" id="video">
+        <h2>Video Motivacional</h2>
+        <div style="max-width:900px;margin:auto;aspect-ratio:16/9">
+            <iframe width="100%" height="100%"
+                src="https://www.youtube.com/embed/Mzp6fjCFHwQ"
+                title="Video motivacional"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen>
+            </iframe>
+        </div>
+    </section>
+
 
     <!-- Testimonios -->
     <section class="testimonios">
@@ -96,6 +113,26 @@
 
     <!-- Botón flotante -->
     <a href="#" class="btn-up">↑</a>
+        <section id="contacto" class="mision-section" aria-labelledby="contact-title">
+            <h2 id="contact-title">Contacto</h2>
+                <form id="form" onsubmit="return false" style="max-width:640px;margin:auto">
+                    <label>Nombre
+                        <input id="nombre" class="input" placeholder="Tu nombre" autocomplete="name" required>
+                    </label>
+        <br>
+            <label>Email
+                <input id="email" type="email" class="input" placeholder="tucorreo@ejemplo.com" autocomplete="email" required>
+             </label>
+        <br>
+            <label>Mensaje
+                <textarea id="mensaje" class="input" rows="4" placeholder="Cuéntanos..." required></textarea>
+            </label>
+        <br>
+            <button class="btn">Enviar</button>
+                <p id="status" class="muted" role="status" aria-live="polite" style="margin-top:8px"></p>
+    </form>
+</section>
+
 
     <!-- Footer -->
         <footer class="footer">
@@ -132,6 +169,12 @@
             <p>&copy; 2025 Motiva Hoy. Todos los derechos reservados.</p>
         </div>
     </footer>
+     <script src="app.js"></script>
+
+
+    </body> 
+
     </html>
+    
 
 
