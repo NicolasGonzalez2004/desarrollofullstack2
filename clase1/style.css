@@ -166,3 +166,59 @@ button:active, .btn:active{ transform:translateY(0) scale(0.98) }
 }
 
 
+/* ==== CONTACTO ==== */
+.contact-section {
+  background: #e0f7fa;
+  padding: 50px 80px;
+  margin: 50px 0;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.contact-section h2 {
+  margin-bottom: 20px;
+  color: var(--brand);
+}
+
+.contact-form {
+  max-width: 500px;   /* ancho fijo para que no se desarme */
+  text-align: left;   /* alinea todo a la izquierda */
+}
+
+.contact-form label {
+  display: block;
+  font-weight: 600;
+  margin: 12px 0 6px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: inherit;
+}
+
+.contact-form textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.contact-form button {
+  margin-top: 15px;
+  background: linear-gradient(135deg, var(--brand), var(--brand-700));
+  border: none;
+  color: #fff;
+  font-weight: bold;
+  padding: 12px 30px;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: transform 0.2s, background 0.3s;
+}
+
+.contact-form button:hover {
+  background: var(--brand-700);
+  transform: translateY(-2px);
+}
