@@ -194,11 +194,7 @@ button:active, .btn:active{ transform:translateY(0) scale(0.98) }
   max-width:500px;   
   text-align:left;   
 }
-.contact-form label{
-  display:block;
-  font-weight:600;
-  margin:12px 0 6px;
-}
+
 .contact-form input,
 .contact-form textarea{
   width:100%;
