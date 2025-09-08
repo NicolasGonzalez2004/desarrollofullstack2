@@ -1,19 +1,24 @@
-
 const frases = {
     motivacion: [
         "Levántate y brilla, hoy es tu día.",
         "No te rindas, lo mejor está por venir.",
-        "La vida es bella, no te rindas."
+        "La vida es bella, no te rindas.",
+        "Levántate de la cama porque tú naciste para sobrevivir.",
+        "Cada día es una nueva oportunidad para empezar de nuevo."
     ],
     disciplina: [
         "La disciplina vence al talento cuando el talento no se esfuerza.",
         "Sé constante y lograrás grandes cosas.",
-        "El éxito es fruto de la disciplina diaria."
+        "El éxito es fruto de la disciplina diaria.",
+        "El esfuerzo constante vence al talento intermitente.",
+        "La motivación te hace empezar, la disciplina te hace continuar."
     ],
     esfuerzo: [
         "Haz hoy lo que otros no quieren, y mañana vivirás lo que otros no pueden.",
         "Trabaja duro y alcanzarás tus metas.",
-        "El esfuerzo de hoy será tu éxito de mañana."
+        "El esfuerzo de hoy será tu éxito de mañana.",
+        "Sin sacrificio no hay victoria.",
+        "El esfuerzo constante vence al talento intermitente."
     ]
 };
 
@@ -23,11 +28,19 @@ document.addEventListener("DOMContentLoaded", () => {
     const categoriaSelect = document.getElementById("categoria");
     const darkModeBtn = document.getElementById("dark-mode-toggle");
 
+    // Guardamos el último índice para evitar repeticiones
+    let ultimoIndice = -1;
 
     boton.addEventListener("click", () => {
         const categoria = categoriaSelect.value;
         const arrayFrases = frases[categoria];
-        const randomIndex = Math.floor(Math.random() * arrayFrases.length);
+
+        let randomIndex;
+        do {
+            randomIndex = Math.floor(Math.random() * arrayFrases.length);
+        } while (randomIndex === ultimoIndice);
+
+        ultimoIndice = randomIndex;
 
         fraseDiv.style.opacity = 0;
         setTimeout(() => {
@@ -36,11 +49,11 @@ document.addEventListener("DOMContentLoaded", () => {
         }, 300);
     });
 
-   
     darkModeBtn.addEventListener("click", () => {
         document.body.classList.toggle("dark-mode");
     });
 });
+
 
 const form = document.getElementById('form');
 const nombre = document.getElementById('nombre');
