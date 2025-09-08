@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const categoriaSelect = document.getElementById("categoria");
     const darkModeBtn = document.getElementById("dark-mode-toggle");
 
-    // Guardamos el último índice para evitar repeticiones
+   
     let ultimoIndice = -1;
 
     boton.addEventListener("click", () => {
@@ -168,7 +168,7 @@ document.getElementById('nav-logout')?.addEventListener('click', ()=>{
       const users = loadUsers();
       const key = email.value.trim().toLowerCase();
       if (users[key]){ status.textContent = 'Ese correo ya está registrado.'; return; }
-      users[key] = { pass: pass.value };    // ⚠️ demo: sin hash
+      users[key] = { pass: pass.value };    
       saveUsers(users);
       status.textContent = '✅ Cuenta creada. Ya puedes iniciar sesión.';
     });

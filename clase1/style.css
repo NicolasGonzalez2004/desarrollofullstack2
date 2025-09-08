@@ -49,9 +49,9 @@ section{ scroll-margin-top:80px }
 }
 .navbar-logo{ display:flex; align-items:center; gap:10px }
 .navbar-logo img{ width:50px; height:50px; border-radius:50% }
-.navbar-logo span{ font-weight:800; letter-spacing:.3px; color:#fff }
+.navbar-logo span{ font-weight:800; letter-spacing:.3px; color:#000 }
 .navbar-links a{
-  color:#fff; text-decoration:none; font-weight:600; margin-left:20px;
+  color:#000; text-decoration:none; font-weight:600; margin-left:20px;
   padding:10px 12px; border-radius:12px;
   transition:transform .15s ease, background .2s ease;
 }
