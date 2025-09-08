@@ -264,3 +264,26 @@ button:active, .btn:active{ transform:translateY(0) scale(0.98) }
   margin-top: 16px;
   justify-content: flex-start;   
 }
+/* Ajustes para el modo oscuro , dark mode*/
+.dark-mode .mision-section {
+  background-color: #1e293b;  
+  color: #f1f5f9;             
+}
+
+.dark-mode .mision-section h2 {
+  color: var(--accent);       
+}
+
+.dark-mode .testimonios {
+  background-color: #111;  
+}
+
+.dark-mode .testimonio-card {
+  background-color: #1e293b;  
+  color: #f1f5f9;             
+  border: 1px solid #334155; 
+}
+
+.dark-mode .testimonio-card span {
+  color: #cbd5e1; 
+}
