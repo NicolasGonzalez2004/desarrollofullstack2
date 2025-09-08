@@ -1,18 +1,20 @@
-
+/* theme tokens ,para tener mi css mas ordenado  */
 :root{
   --bg:#f7f8fa;
   --text:#101418;
   --muted:#6b7280;
   --card:#ffffff;
   --radius:16px;
+
   --brand:#0a66ff;
   --brand-700:#084fca;
   --accent:#ffd96a;
 }
 .theme-ocean{ --brand:#0a66ff; --brand-700:#084fca; --accent:#ffd96a; }
 .theme-sunset{ --brand:#ff6a3d; --brand-700:#e0522a; --accent:#ffd2e3; }
-.theme-neon{ --brand:#7c3aed; --brand-700:#5b21b6; --accent:#22d3ee; }
+.theme-neon  { --brand:#7c3aed; --brand-700:#5b21b6; --accent:#22d3ee; }
 
+/* base */
 html{ scroll-behavior:smooth }
 body{
   margin:0;
@@ -22,7 +24,6 @@ body{
   line-height:1.65;
   letter-spacing:.2px;
 }
-
 h1,h2,h3{
   font-family:"Playfair Display", serif;
   line-height:1.2;
@@ -32,15 +33,18 @@ h1{font-weight:700}
 h2,h3{font-weight:600}
 
 .container{ max-width:1100px; margin:auto }
+section{ scroll-margin-top:80px }
+
+/* navbar */
 .navbar{
   position:sticky; top:0; z-index:1000;
   display:flex; align-items:center; justify-content:space-between;
   padding:10px 20px;
-  background: linear-gradient(180deg,
+  background:linear-gradient(180deg,
     color-mix(in oklab, var(--brand) 35%, #0000),
     color-mix(in oklab, var(--brand) 20%, #0000));
-  box-shadow: 0 8px 24px rgba(0,0,0,.12);
-  border-bottom: 1px solid rgba(255,255,255,.12);
+  box-shadow:0 8px 24px rgba(0,0,0,.12);
+  border-bottom:1px solid rgba(255,255,255,.12);
   color:#fff;
 }
 .navbar-logo{ display:flex; align-items:center; gap:10px }
@@ -54,6 +58,7 @@ h2,h3{font-weight:600}
 .navbar-links a:hover{ background:rgba(255,255,255,.12); transform:translateY(-1px) }
 .navbar-toggle{ display:none; font-size:2rem; cursor:pointer }
 
+/* hero */
 .hero{
   position:relative;
   min-height:80vh;
@@ -64,14 +69,13 @@ h2,h3{font-weight:600}
   overflow:hidden;
 }
 .hero::after{
-  content:"";
-  position:absolute; inset:0;
+  content:""; position:absolute; inset:0;
   background:linear-gradient(180deg, rgba(0,0,0,.45), rgba(0,0,0,.35));
-  pointer-events:none;              
+  pointer-events:none;
 }
 .hero-content{ position:relative; z-index:1; max-width:600px }
 .hero-content h1{ font-size:3rem; margin-bottom:15px }
-.hero-content p{ font-size:1.3rem; margin-bottom:25px }
+.hero-content p { font-size:1.3rem; margin-bottom:25px }
 .btn-hero{
   display:inline-block;
   background:var(--brand); color:#fff;
@@ -81,38 +85,52 @@ h2,h3{font-weight:600}
 }
 .btn-hero:hover{ background:var(--brand-700); transform:translateY(-2px) }
 
-
-section{ scroll-margin-top:80px }
-
-
-.mision-section, .testimonio-card, .frase{
+/* bloques y tarjetas*/
+.mision-section,
+.testimonio-card,
+.frase{
   border-radius:var(--radius);
   background:var(--card);
   box-shadow:0 12px 30px rgba(0,0,0,.08);
 }
-.mision-section{ background-color:#e0f7fa; padding:50px 80px; margin:50px 0 }
 
+.mision-section{
+  background-color:#e0f7fa;
+  padding:50px 80px;
+  margin:50px 0;
+}
+
+/* heores hombes y mujeres */
 .info-section{ text-align:center; padding:40px }
-.info-container{ display:flex; justify-content:center; gap:20px; flex-wrap:wrap }
+.info-container{
+  display:flex; justify-content:center; gap:20px; flex-wrap:wrap;
+}
 .info-card{
   border-radius:var(--radius); overflow:hidden; background:var(--card);
+  border:1px solid color-mix(in oklab, var(--brand) 10%, #0000);
   box-shadow:0 12px 30px rgba(0,0,0,.08);
   transition:transform .2s ease, box-shadow .2s ease;
-  border:1px solid color-mix(in oklab, var(--brand) 10%, #0000);
 }
 .info-card:hover{ transform:translateY(-4px); box-shadow:0 16px 40px rgba(0,0,0,.12) }
-.info-card img{ width:100%; height:320px; object-fit:cover }
+.info-card img{
+  width:100%;
+  height:320px;           
+  object-fit:cover;       
+}
 .info-card h3{ margin:15px 0 10px; color:var(--brand) }
 
-
+/* frases dinamicas */
 .frases-section{ text-align:left; margin:50px auto; max-width:800px; padding-left:50px }
-.frase{ font-size:2rem; padding:20px; max-width:500px; margin-bottom:20px; text-align:center }
+.frase{
+  position:relative;
+  font-size:2rem; padding:20px; max-width:500px; margin-bottom:20px; text-align:center;
+}
 .frase::before{
   content:"“"; position:absolute; left:14px; top:-6px;
   font-family:"Playfair Display", serif; font-size:48px; color:var(--brand); opacity:.18;
 }
 
-
+/* botones */
 button, .btn{
   background:linear-gradient(135deg, var(--brand), var(--brand-700));
   color:#fff; border:0; padding:12px 20px; border-radius:999px;
@@ -123,11 +141,11 @@ button, .btn{
 button:hover, .btn:hover{ transform:translateY(-2px); filter:brightness(1.05) }
 button:active, .btn:active{ transform:translateY(0) scale(0.98) }
 
-
+/*testimonios */
 .testimonios{ text-align:center; padding:40px }
 .testimonio-card{ padding:20px; margin:10px auto; max-width:500px }
 
-
+/* boton volver arriba */
 .btn-up{
   position:fixed; bottom:20px; right:20px;
   background:#007bff; color:#fff; padding:12px 18px; border-radius:50%;
@@ -135,14 +153,15 @@ button:active, .btn:active{ transform:translateY(0) scale(0.98) }
 }
 .btn-up.show{ display:block }
 
-
+/* modo oscuro */
 .dark-mode{ background:#222; color:#f4f4f4 }
 .dark-mode .frase{ background:#333 }
 
-
+/* footer */
 .footer{ background:#111; color:#fff; padding:40px 20px 20px; font-family:Arial, sans-serif }
 .footer-container{
-  display:flex; flex-wrap:wrap; justify-content:space-between; max-width:1200px; margin:0 auto; gap:30px
+  display:flex; flex-wrap:wrap; justify-content:space-between;
+  max-width:1200px; margin:0 auto; gap:30px;
 }
 .footer-logo img{ width:60px; height:60px; border-radius:50%; margin-bottom:10px }
 .footer-logo p{ font-size:.9rem; color:#ccc; max-width:250px }
@@ -156,69 +175,92 @@ button:active, .btn:active{ transform:translateY(0) scale(0.98) }
 .footer-social .social-icons img:hover{ transform:scale(1.2) }
 .footer-bottom{
   text-align:center; margin-top:20px; font-size:.9rem; color:#777;
-  border-top:1px solid #333; padding-top:15px
+  border-top:1px solid #333; padding-top:15px;
 }
 
-
-@media (max-width:768px){
-  .hero-content h1{ font-size: clamp(1.8rem, 7vw, 2.6rem) }
-  .info-card img{ height:180px }
+/* contacto */
+.contact-section{
+  background:#e0f7fa;
+  padding:50px 80px;
+  margin:50px 0;
+  border-radius:15px;
+  box-shadow:0 4px 12px rgba(0,0,0,0.1);
 }
-
-
-/* ==== CONTACTO ==== */
-.contact-section {
-  background: #e0f7fa;
-  padding: 50px 80px;
-  margin: 50px 0;
-  border-radius: 15px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+.contact-section h2{
+  margin-bottom:20px;
+  color:var(--brand);
 }
-
-.contact-section h2 {
-  margin-bottom: 20px;
-  color: var(--brand);
+.contact-form{
+  max-width:500px;   
+  text-align:left;   
 }
-
-.contact-form {
-  max-width: 500px;   /* ancho fijo para que no se desarme */
-  text-align: left;   /* alinea todo a la izquierda */
+.contact-form label{
+  display:block;
+  font-weight:600;
+  margin:12px 0 6px;
 }
-
-.contact-form label {
-  display: block;
-  font-weight: 600;
-  margin: 12px 0 6px;
-}
-
 .contact-form input,
-.contact-form textarea {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  font-size: 1rem;
-  font-family: inherit;
+.contact-form textarea{
+  width:100%;
+  padding:12px;
+  border:1px solid #ccc;
+  border-radius:8px;
+  font-size:1rem;
+  font-family:inherit;
+}
+.contact-form textarea{
+  min-height:100px;
+  resize:vertical;
+}
+.contact-form button{
+  margin-top:15px;
+  background:linear-gradient(135deg, var(--brand), var(--brand-700));
+  border:none; color:#fff; font-weight:bold;
+  padding:12px 30px; border-radius:30px; cursor:pointer;
+  transition:transform .2s, background .3s;
+}
+.contact-form button:hover{ background:var(--brand-700); transform:translateY(-2px) }
+
+/* responsive , adaptacion dependiendiendo del dispositivo */
+@media (max-width:768px){
+  .hero-content h1{ font-size:clamp(1.8rem, 7vw, 2.6rem) }
+  .info-card img{ height:180px }
+  .contact-section{ padding:36px 20px }
 }
 
-.contact-form textarea {
-  min-height: 100px;
-  resize: vertical;
+/* Alineacion full izquierda */
+.frases-section{
+  width: 100%;  
+  max-width: unset;
+  margin: 48px 0;
+  padding: 0 24px;
+  text-align: left;       
 }
 
-.contact-form button {
-  margin-top: 15px;
-  background: linear-gradient(135deg, var(--brand), var(--brand-700));
-  border: none;
-  color: #fff;
-  font-weight: bold;
-  padding: 12px 30px;
-  border-radius: 30px;
-  cursor: pointer;
-  transition: transform 0.2s, background 0.3s;
+.frases-header{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;   
+  gap: 16px;
+  margin-bottom: 12px;
 }
 
-.contact-form button:hover {
-  background: var(--brand-700);
-  transform: translateY(-2px);
+.frase{
+  position: relative;
+  margin: 8px 0 0 0;
+  padding: 28px 32px;
+  border-radius: var(--radius);
+  background: var(--card);
+  box-shadow: 0 16px 40px rgba(0,0,0,.08);
+  border-left: 5px solid var(--brand);
+  font-size: clamp(1.4rem, 3.2vw, 2.2rem);
+  line-height: 1.35;
+  text-align: left;      
+}
+
+.frases-actions{
+  display: flex;
+  gap: 12px;
+  margin-top: 16px;
+  justify-content: flex-start;   
 }

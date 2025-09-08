@@ -47,21 +47,29 @@
 
 
     <section class="frases-section" id="frases">
-        <h2>Frases Motivadoras</h2>
-        <label for="categoria">Selecciona categoría:</label>
-        <select id="categoria">
-            <option value="motivacion">Motivación</option>
-            <option value="disciplina">Disciplina</option>
-            <option value="esfuerzo">Esfuerzo</option>
-        </select>
+        <div class="frases-header">
+            <h2>Frases Motivadoras</h2>
 
-        <div class="frase fade-in" id="frase">
+            <label class="select-wrap">
+                <span>Selecciona categoría:</span>
+                <select id="categoria">
+                    <option value="motivacion">Motivación</option>
+                    <option value="disciplina">Disciplina</option>
+                    <option value="esfuerzo">Esfuerzo</option>
+                </select>
+            </label>
+        </div>
+
+        <div class="frase" id="frase">
             ¡Nunca te rindas, lo mejor está por venir!
         </div>
-        <br>
-        <button id="boton">Nueva Frase</button>
-        <button id="dark-mode-toggle">🌙 Modo Oscuro</button>
+
+        <div class="frases-actions">
+            <button id="boton" class="btn">Nueva Frase</button>
+            <button id="dark-mode-toggle" class="btn">🌙 Modo Oscuro</button>
+        </div>
     </section>
+
 
     <section class="info-section" id="info">
         <h2>Heroes del Esfuerzo</h2>
@@ -114,7 +122,6 @@
             </iframe>
         </div>
     </section>
-
     <section class="testimonios">
         <h2>Lo que dicen nuestros usuarios</h2>
         <div class="testimonio-card">
@@ -126,8 +133,6 @@
             <span>- María L.</span>
         </div>
     </section>
-
-
     <section class="contact-section" id="contacto">
         <h2>Contacto</h2>
         <form class="contact-form">
@@ -145,8 +150,6 @@
     </section>
 
 </section>
-
-
         <footer class="footer">
             <div class="footer-container">
 
