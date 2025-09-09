@@ -1,179 +1,117 @@
+//  FRASES 
 const frases = {
-    motivacion: [
-        "Levántate y brilla, hoy es tu día.",
-        "No te rindas, lo mejor está por venir.",
-        "La vida es bella, no te rindas.",
-        "Levántate de la cama porque tú naciste para sobrevivir.",
-        "Cada día es una nueva oportunidad para empezar de nuevo."
-    ],
-    disciplina: [
-        "La disciplina vence al talento cuando el talento no se esfuerza.",
-        "Sé constante y lograrás grandes cosas.",
-        "El éxito es fruto de la disciplina diaria.",
-        "El esfuerzo constante vence al talento intermitente.",
-        "La motivación te hace empezar, la disciplina te hace continuar."
-    ],
-    esfuerzo: [
-        "Haz hoy lo que otros no quieren, y mañana vivirás lo que otros no pueden.",
-        "Trabaja duro y alcanzarás tus metas.",
-        "El esfuerzo de hoy será tu éxito de mañana.",
-        "Sin sacrificio no hay victoria.",
-        "El esfuerzo constante vence al talento intermitente."
-    ]
+  motivacion: [
+    "Levántate y brilla, hoy es tu día.",
+    "No te rindas, lo mejor está por venir.",
+    "La vida es bella, no te rindas.",
+    "Levántate de la cama porque tú naciste para sobrevivir.",
+    "Cada día es una nueva oportunidad para empezar de nuevo."
+  ],
+  disciplina: [
+    "La disciplina vence al talento cuando el talento no se esfuerza.",
+    "Sé constante y lograrás grandes cosas.",
+    "El éxito es fruto de la disciplina diaria.",
+    "El esfuerzo constante vence al talento intermitente.",
+    "La motivación te hace empezar, la disciplina te hace continuar."
+  ],
+  esfuerzo: [
+    "Haz hoy lo que otros no quieren, y mañana vivirás lo que otros no pueden.",
+    "Trabaja duro y alcanzarás tus metas.",
+    "El esfuerzo de hoy será tu éxito de mañana.",
+    "Sin sacrificio no hay victoria.",
+    "El esfuerzo constante vence al talento intermitente."
+  ]
 };
 
 document.addEventListener("DOMContentLoaded", () => {
-    const fraseDiv = document.getElementById("frase");
-    const boton = document.getElementById("boton");
-    const categoriaSelect = document.getElementById("categoria");
-    const darkModeBtn = document.getElementById("dark-mode-toggle");
+  //  ELEMENTOS DE FRASES - MODO OSCURO
+  const fraseDiv = document.getElementById("frase");
+  const boton = document.getElementById("boton");
+  const categoriaSelect = document.getElementById("categoria");
+  const darkModeBtn = document.getElementById("dark-mode-toggle");
 
-   
-    let ultimoIndice = -1;
+  // Evitar para que no se repita la frase
+  const ultimoIndicePorCategoria = { motivacion: -1, disciplina: -1, esfuerzo: -1 };
 
+  if (boton && categoriaSelect && fraseDiv) {
     boton.addEventListener("click", () => {
-        const categoria = categoriaSelect.value;
-        const arrayFrases = frases[categoria];
+      const categoria = categoriaSelect.value;
+      const lista = frases[categoria] || [];
+      if (!lista.length) return;
 
-        let randomIndex;
-        do {
-            randomIndex = Math.floor(Math.random() * arrayFrases.length);
-        } while (randomIndex === ultimoIndice);
+      let i;
+      do {
+        i = Math.floor(Math.random() * lista.length);
+      } while (i === ultimoIndicePorCategoria[categoria] && lista.length > 1);
 
-        ultimoIndice = randomIndex;
+      ultimoIndicePorCategoria[categoria] = i;
 
-        fraseDiv.style.opacity = 0;
-        setTimeout(() => {
-            fraseDiv.textContent = arrayFrases[randomIndex];
-            fraseDiv.style.opacity = 1;
-        }, 300);
+      fraseDiv.style.opacity = 0;
+      setTimeout(() => {
+        fraseDiv.textContent = lista[i];
+        fraseDiv.style.opacity = 1;
+      }, 300);
     });
+  }
 
+  if (darkModeBtn) {
     darkModeBtn.addEventListener("click", () => {
-        document.body.classList.toggle("dark-mode");
+      document.body.classList.toggle("dark-mode");
     });
-});
+  }
 
+  // formulario de contacto
+ 
+  const form = document.getElementById("contact-form") || document.querySelector(".contact-form");
 
-const form = document.getElementById('form');
-const nombre = document.getElementById('nombre');
-const email  = document.getElementById('email');
-const mensaje= document.getElementById('mensaje');
-const status = document.getElementById('status');
+  if (form) {
+    const nombre  = form.querySelector("#nombre")  || form.querySelector('input[name="nombre"]');
+    const email   = form.querySelector("#email")   || form.querySelector('input[name="email"]');
+    const mensaje = form.querySelector("#mensaje") || form.querySelector('textarea[name="mensaje"]');
+    let statusMsg = document.getElementById("form-status") || form.querySelector(".form-status");
+    if (!statusMsg) {
+      statusMsg = document.createElement("p");
+      statusMsg.id = "form-status";
+      statusMsg.style.marginTop = "10px";
+      statusMsg.style.fontWeight = "bold";
+      form.appendChild(statusMsg);
+    }
+    const emailValido = (val) => /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(val);
 
-function tip(input, texto){
-  input.setCustomValidity(texto || '');
-  input.reportValidity();
-  if(texto) input.focus();
-}
-
-form?.addEventListener('submit', (e)=>{
-  e.preventDefault();
-  if(!nombre.value.trim()) return tip(nombre, 'Por favor, escribe tu nombre.');
-  if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email.value)) return tip(email, 'Escribe un correo válido (ej: hola@correo.com).');
-  if(mensaje.value.trim().length < 10) return tip(mensaje, 'Cuéntanos un poco más (mínimo 10 caracteres).');
-
-  tip(nombre); tip(email); tip(mensaje);
-  status.textContent = '¡Gracias! Te responderemos pronto.';
-  form.reset();
-});
-
-
-const LS_USERS_KEY = 'motiva_usuarios';   
-const SS_SESSION_KEY = 'motiva_session';  
-
-function loadUsers(){
-  try { return JSON.parse(localStorage.getItem(LS_USERS_KEY)) || {}; }
-  catch { return {}; }
-}
-function saveUsers(users){
-  localStorage.setItem(LS_USERS_KEY, JSON.stringify(users));
-}
-function setSession(email, remember){
-  const data = JSON.stringify({ email, ts: Date.now() });
-  if (remember) localStorage.setItem(SS_SESSION_KEY, data);
-  sessionStorage.setItem(SS_SESSION_KEY, data);
-}
-function clearSession(){
-  sessionStorage.removeItem(SS_SESSION_KEY);
-  localStorage.removeItem(SS_SESSION_KEY);
-}
-function getSession(){
-  const raw = sessionStorage.getItem(SS_SESSION_KEY) || localStorage.getItem(SS_SESSION_KEY);
-  try { return raw ? JSON.parse(raw) : null; } catch { return null; }
-}
-
-
-function refreshNavAuth(){
-  const logged = !!getSession();
-  const navLogin = document.getElementById('nav-login');
-  const navLogout = document.getElementById('nav-logout');
-  if (navLogin)  navLogin.style.display  = logged ? 'none' : '';
-  if (navLogout) navLogout.style.display = logged ? '' : 'none';
-}
-document.getElementById('nav-logout')?.addEventListener('click', ()=>{
-  clearSession();
-  refreshNavAuth();
-});
-
-
-(function initAuthPage(){
-  const loginForm = document.getElementById('login-form');
-  const registerForm = document.getElementById('register-form');
-  const showRegister = document.getElementById('show-register');
-
-  refreshNavAuth();
-
-  if (showRegister){
-    showRegister.addEventListener('click', (e)=>{
+    form.addEventListener("submit", (e) => {
       e.preventDefault();
-      registerForm.style.display = registerForm.style.display === 'none' ? '' : 'none';
+
+      const vNombre  = (nombre?.value || "").trim();
+      const vEmail   = (email?.value || "").trim();
+      const vMensaje = (mensaje?.value || "").trim();
+
+      if (!vNombre) {
+        statusMsg.textContent = "Por favor, ingresa tu nombre.";
+        statusMsg.style.color = "red";
+        nombre?.focus();
+        return;
+      }
+      if (!emailValido(vEmail)) {
+        statusMsg.textContent = "Por favor, ingresa un correo válido (ej: hola@correo.com).";
+        statusMsg.style.color = "red";
+        email?.focus();
+        return;
+      }
+      if (vMensaje.length < 10) {
+        statusMsg.textContent = "El mensaje debe tener al menos 10 caracteres.";
+        statusMsg.style.color = "red";
+        mensaje?.focus();
+        return;
+      }
+
+
+      statusMsg.textContent = "¡Gracias! Tu mensaje fue enviado correctamente.";
+      statusMsg.style.color = "green";
+      form.reset();
     });
   }
+});
 
-  if (loginForm){
-    const email = document.getElementById('login-email');
-    const pass  = document.getElementById('login-pass');
-    const remember = document.getElementById('remember');
-    const status = document.getElementById('login-status');
-
-    document.getElementById('login-btn').addEventListener('click', ()=>{
-      const users = loadUsers();
-      const u = users[(email.value || '').trim().toLowerCase()];
-      if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email.value)) {
-        status.textContent = 'Correo inválido.'; return;
-      }
-      if (!u || u.pass !== pass.value){
-        status.textContent = 'Credenciales incorrectas.'; return;
-      }
-      setSession(email.value.trim().toLowerCase(), remember.checked);
-      status.textContent = '✅ Sesión iniciada. Volviendo al inicio...';
-      refreshNavAuth();
-      setTimeout(()=>{ window.location.href = './index.html'; }, 800);
-    });
-  }
-
-  if (registerForm){
-    const email = document.getElementById('reg-email');
-    const pass  = document.getElementById('reg-pass');
-    const status = document.getElementById('register-status');
-
-    document.getElementById('register-btn').addEventListener('click', ()=>{
-      if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email.value)){
-        status.textContent = 'Correo inválido.'; return;
-      }
-      if ((pass.value || '').length < 6){
-        status.textContent = 'La contraseña debe tener al menos 6 caracteres.'; return;
-      }
-      const users = loadUsers();
-      const key = email.value.trim().toLowerCase();
-      if (users[key]){ status.textContent = 'Ese correo ya está registrado.'; return; }
-      users[key] = { pass: pass.value };    
-      saveUsers(users);
-      status.textContent = '✅ Cuenta creada. Ya puedes iniciar sesión.';
-    });
-  }
-})();
 
 
 
