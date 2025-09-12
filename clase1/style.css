@@ -276,7 +276,7 @@ button:hover, .btn:hover{ background: #084fca; }
 .dark-mode .contact-section{ background: #1a2838; }
 .dark-mode .footer{ background: #0d0d0d; }
 
-/*  responsive */
+/*  responsive adaptacion segun el dispositivo */
 @media (max-width: 768px){
   .navbar{ flex-wrap: wrap; gap: 10px; }
   .navbar-links{ width: 100%; text-align: center; }

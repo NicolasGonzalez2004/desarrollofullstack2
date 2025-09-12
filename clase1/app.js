@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }, 300);
     });
   }
-
+    //modo oscuro dark mode
   if (darkModeBtn) {
     darkModeBtn.addEventListener("click", () => {
       document.body.classList.toggle("dark-mode");
