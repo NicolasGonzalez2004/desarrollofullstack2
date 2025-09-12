@@ -1,5 +1,5 @@
 //  FRASES 
-const frases = {
+const frases = {      //me permite crear una constante , cada categoria tiene su arraylist
   motivacion: [
     "Levántate y brilla, hoy es tu día.",
     "No te rindas, lo mejor está por venir.",
@@ -12,7 +12,7 @@ const frases = {
     "Sé constante y lograrás grandes cosas.",
     "El éxito es fruto de la disciplina diaria.",
     "El esfuerzo constante vence al talento intermitente.",
-    "La motivación te hace empezar, la disciplina te hace continuar."
+    "La motivación te hace empezar, la disciplina te hace continuar.",
   ],
   esfuerzo: [
     "Haz hoy lo que otros no quieren, y mañana vivirás lo que otros no pueden.",
@@ -65,25 +65,33 @@ document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("contact-form") || document.querySelector(".contact-form");
 
   if (form) {
+    // Busca el formulario por su id (#contact-form) o por la clase .contact-form
     const nombre  = form.querySelector("#nombre")  || form.querySelector('input[name="nombre"]');
     const email   = form.querySelector("#email")   || form.querySelector('input[name="email"]');
     const mensaje = form.querySelector("#mensaje") || form.querySelector('textarea[name="mensaje"]');
+      // Busca el mensaje de estado (para mostrar errores o éxito)
     let statusMsg = document.getElementById("form-status") || form.querySelector(".form-status");
+    // Si no existe el mensaje de estado, lo crea y lo agrega al formulario
     if (!statusMsg) {
-      statusMsg = document.createElement("p");
-      statusMsg.id = "form-status";
-      statusMsg.style.marginTop = "10px";
-      statusMsg.style.fontWeight = "bold";
-      form.appendChild(statusMsg);
+      statusMsg = document.createElement("p"); // Crea un párrafo
+      statusMsg.id = "form-status";            // Le da un id
+      statusMsg.style.marginTop = "10px";      // Espacio arriba
+      statusMsg.style.fontWeight = "bold";     // Texto en negrita
+      form.appendChild(statusMsg);             // Lo agrega dentro del form
     }
+     // Expresión regular para validar que el email sea correcto
     const emailValido = (val) => /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(val);
 
+
+    // Evento cuando el usuario envía el formulario
     form.addEventListener("submit", (e) => {
       e.preventDefault();
-
+      // Guarda los valores ingresados por el usuario
       const vNombre  = (nombre?.value || "").trim();
       const vEmail   = (email?.value || "").trim();
       const vMensaje = (mensaje?.value || "").trim();
+
+      // Validaciones:
 
       if (!vNombre) {
         statusMsg.textContent = "Por favor, ingresa tu nombre.";

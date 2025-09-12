@@ -23,9 +23,23 @@ h2,h3{ font-weight: 600; }
   background: #0a66ff;   
   color: #fff;
 }
-.navbar-logo{ display: flex; align-items: center; gap: 10px; }
-.navbar-logo img{ width: 50px; height: 50px; border-radius: 50%; }
-.navbar-logo span{ font-weight: 800; letter-spacing: .3px; }
+.navbar-logo{ 
+  display: flex;            /* coloca el logo y el texto en una misma fila */
+  align-items: center;      /* los alinea verticalmente al centro */
+  gap: 10px;                /* deja 10px de separación entre el logo y el texto */
+}
+
+.navbar-logo img{ 
+  width: 50px;              /* ancho de la imagen del logo */
+  height: 50px;             /* alto del logo */
+  border-radius: 50%;       /* lo hace redondo */
+}
+
+.navbar-logo span{ 
+  font-weight: 800;         /* texto bien grueso/negrita */
+  letter-spacing: .3px;     /* separa un poquito las letras */
+}
+
 
 .navbar-links a{
   color: #fff;
@@ -143,11 +157,26 @@ button:hover, .btn:hover{ background: #084fca; }
   max-width: 1100px;
   margin: 40px auto;
 }
-.contact-section h2{ text-align: center; color: #0a66ff; margin-bottom: 16px; }
+.contact-section h2{ 
+  text-align: center;   /* centra el título "Contacto" */
+  color: #0a66ff;       /* lo pinta de azul */
+  margin-bottom: 16px;  /* deja espacio hacia abajo */
+}
 
-.contact-form{ max-width: 600px; margin: 0 auto; text-align: left; }
-.contact-form label{ display: block; font-weight: 600; margin: 10px 0 6px; }
+.contact-form{ 
+  max-width: 600px;     /* ancho máximo del formulario */
+  margin: 0 auto;       /* lo centra horizontalmente */
+  text-align: left;     /* el texto dentro del form queda alineado a la izquierda */
+}
+
+.contact-form label{ 
+  display: block;       /* cada label ocupa toda la línea */
+  font-weight: 600;     /* pone las letras un poco más gruesas (negrita suave) */
+  margin: 10px 0 6px;   /* espacio arriba y abajo de cada label */
+}
+
 .contact-form input,
+
 .contact-form textarea{
   width: 100%;
   padding: 12px;
@@ -175,19 +204,55 @@ button:hover, .btn:hover{ background: #084fca; }
   max-width: 1200px;
   margin: 0 auto;
 }
-.footer-logo img{ width: 60px; height: 60px; border-radius: 50%; margin-bottom: 8px; }
-.footer-logo p{ font-size: .95rem; color: #ccc; max-width: 260px; }
+.footer-logo img{ 
+  width: 60px;          /* ancho fijo de la imagen del logo */
+  height: 60px;         /* alto fijo del logo */
+  border-radius: 50%;   /* redondea la imagen (círculo perfecto) */
+  margin-bottom: 8px;   /* deja un pequeño espacio abajo */
+}
+
+.footer-logo p{ 
+  font-size: .95rem;    /* tamaño de letra un poco más pequeño */
+  color: #ccc;          /* color gris claro */
+  max-width: 260px;     /* limita el ancho del párrafo para que no sea muy largo */
+}
 
 .footer-links h3,
-.footer-social h3{ margin-bottom: 10px; font-size: 1.1rem; color: #fff; }
+.footer-social h3{ 
+  margin-bottom: 10px;  /* espacio debajo del título */
+  font-size: 1.1rem;    /* tamaño de letra un poco más grande que lo normal */
+  color: #fff;          /* color blanco para destacar en el footer oscuro */
+}
 
-.footer-links ul{ list-style: none; padding: 0; margin: 0; }
-.footer-links li{ margin-bottom: 8px; }
-.footer-links a{ color: #ccc; text-decoration: none; }
-.footer-links a:hover{ text-decoration: underline; }
+.footer-links ul{ 
+  list-style: none;     /* quita los puntos de la lista (<ul>) */
+  padding: 0;           /* elimina relleno interno */
+  margin: 0;            /* elimina márgenes */
+}
 
-.footer-social .social-icons{ display: flex; gap: 10px; }
-.footer-social .social-icons img{ width: 30px; height: 30px; }
+.footer-links li{ 
+  margin-bottom: 8px;   /* separa cada elemento de la lista */
+}
+
+.footer-links a{ 
+  color: #ccc;          /* enlaces en gris claro */
+  text-decoration: none;/* quita el subrayado */
+}
+
+.footer-links a:hover{ 
+  text-decoration: underline; /* al pasar el mouse, aparece el subrayado */
+}
+
+.footer-social .social-icons{ 
+  display: flex;        /* coloca los íconos en fila */
+  gap: 10px;            /* separa cada ícono con 10px */
+}
+
+.footer-social .social-icons img{ 
+  width: 30px;          /* ancho de los íconos */
+  height: 30px;         /* alto de los íconos */
+}
+
 
 .footer-bottom{
   text-align: center;
